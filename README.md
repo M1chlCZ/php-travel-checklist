@@ -7,25 +7,26 @@ The API stores trips and checklist items. It uses PHP 8.4, Laravel 13, MySQL 8.4
 ## Run locally
 
 1. Copy `.env.example` to `.env`.
-2. Build the image.
+2. Set different local passwords in `DB_PASSWORD` and `MYSQL_ROOT_PASSWORD` in `.env`. Keep `.env` private.
+3. Build the image.
 
 ```sh
 docker compose build
 ```
 
-3. Generate an application key. Copy the value into `APP_KEY` in `.env`.
+4. Generate an application key. Copy the value into `APP_KEY` in `.env`.
 
 ```sh
 docker compose run --rm --no-deps app php artisan key:generate --show
 ```
 
-4. Generate an API token. Copy the value into `DEMO_API_TOKEN` in `.env`.
+5. Generate an API token. Copy the value into `DEMO_API_TOKEN` in `.env`.
 
 ```sh
 docker compose run --rm --no-deps app php -r 'echo bin2hex(random_bytes(32)), PHP_EOL;'
 ```
 
-5. Start the containers. Create the tables.
+6. Start the containers. Create the tables.
 
 ```sh
 docker compose up -d --wait
